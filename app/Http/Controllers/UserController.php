@@ -47,7 +47,6 @@ class UserController extends Controller
     }
     public function getAccount()
     {   $user_info = User::where('id', Auth::user()->id)->get();
-//        dd($user_info);
         return view('account', ['users' => $user_info]);
     }
     public function postSaveAccount(Request $request)
