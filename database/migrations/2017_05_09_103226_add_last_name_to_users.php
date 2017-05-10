@@ -13,7 +13,12 @@ class AddLastNameToUsers extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('users', function($table)
+        {
+            $table->renameColumn('name', 'first_name');
+            $table->string('last_name');
+            $table->string('about_myself');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class AddLastNameToUsers extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('users');
     }
 }
