@@ -46,8 +46,9 @@ class UserController extends Controller
         return redirect()->route('home');
     }
     public function getAccount()
-    {
-        return view('account', ['user' => Auth::user()]);
+    {   $user_info = User::where('id', Auth::user()->id)->get();
+//        dd($user_info);
+        return view('account', ['users' => $user_info]);
     }
     public function postSaveAccount(Request $request)
     {
