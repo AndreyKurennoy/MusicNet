@@ -38,5 +38,10 @@ Route::group(['middleware' => 'auth'],
             'uses' => 'UserController@getUserImage',
             'as' => 'account.image'
         ]);
+
+        Route::get('/deleteuserimage', [
+            'uses' => 'UserController@deleteUserImage',
+            'as' => 'delete.image'
+        ]);
     }
 );

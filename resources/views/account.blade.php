@@ -16,22 +16,22 @@
                 @if (Storage::disk('local')->has($user->first_name . '-' . $user->id . '.jpg'))
                     <section class="row new-post">
                         <div class="col-md-6 col-md-offset-3">
-                            <img src="{{ route('account.image', ['filename' => $user->first_name . '-' . $user->id . '.jpg']) }}" alt="" class="img-responsive">
+                            <img src="{{ route('account.image', ['filename' => $user->first_name . '-' . $user->id . '.jpg']) }}" alt="" class="img-responsive" width="100" height="150">
                         </div>
                     </section>
                 @endif
 
                 <div class="form-group">
                     <label for="first_name">First Name</label>
-                    <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" id="first_name">
+                    <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" id="first_name"  placeholder="Enter your name">
                 </div>
                 <div class="form-group">
                     <label for="last_name">Last Name</label>
-                    <input type="text" name="last_name" class="form-control" value="{{ $user->last_name }}" id="last_name">
+                    <input type="text" name="last_name" class="form-control" value="{{ $user->last_name }}" id="last_name" placeholder="Enter your last name">
                 </div>
                 <div class="form-group">
                     <label for="about_myself">About myself</label>
-                    <input type="text" name="about_myself" class="form-control" value="{{ $user->about_myself }}" id="about_myself">
+                    <input type="text" name="about_myself" class="form-control" value="{{ $user->about_myself }}" id="about_myself" placeholder="Tell us about yourself">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save Account</button>

@@ -49,6 +49,7 @@ class UserController extends Controller
     {   $user_info = User::where('id', Auth::user()->id)->get();
         return view('account', ['users' => $user_info]);
     }
+
     public function postSaveAccount(Request $request)
     {
         $this->validate($request, [
@@ -81,9 +82,16 @@ class UserController extends Controller
         }
         return redirect()->route('account');
     }
+
     public function getUserImage($filename)
     {
+
         $file = Storage::disk('local')->get($filename);
+
         return new Response($file, 200);
     }
+
+        public function deleteUserImage(){
+
+        }
 }
